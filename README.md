@@ -1,6 +1,6 @@
 # Codependency
 
-TODO: Write a gem description
+Codependency is a simple comment-based dependency graph that you can use on arbitrary files. At the moment, it only supports ruby-style comments, files with the `.rb` extension, and files in the same flat directory.
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Say you have two files, `bar.rb` and `foo.rb`. `bar` comes before `foo` in a natural naming scheme, but `bar` has a dependency on `foo`. We can express this using a simple comment syntax at the head of the file like this:
+
+**bar.rb:**
+
+``` rb
+# require foo
+
+class Bar
+end
+```
+
+**foo.rb:**
+
+``` rb
+class Foo
+end
+```
+
+Then, we create a dependency graph to determine the order in which the files might need to be loaded, inserted, or compiled:
+
+``` rb
+graph = Codependency::Graph.new %w| bar.rb foo.rb |
+graph.files # => ["foo.rb", "bar.rb"]
+```
 
 ## Contributing
 
