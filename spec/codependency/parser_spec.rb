@@ -11,21 +11,21 @@ describe Codependency::Parser do
 
   context 'earth' do
     subject { parser.parse( "#{path}/earth.rb" ) }
-    it { should eq( [ :planet ] ) }
+    it { should eq( [ 'planet' ] ) }
   end
 
   context 'mars' do
     subject { parser.parse( "#{path}/mars.rb" ) }
-    it { should eq( [ :planet ] ) }
+    it { should eq( [ 'planet' ] ) }
   end
 
   context 'phobos' do
     subject { parser.parse( "#{path}/phobos.rb" ) }
-    it { should eq( [ :body, :mars ] ) }
+    it { should eq( [ 'body', 'mars' ] ) }
   end
 
   context 'planet' do
     subject { parser.parse( "#{path}/planet.rb" ) }
-    it { should eq( [ :body ] ) }
+    it { should eq( [ 'body' ] ) }
   end
 end

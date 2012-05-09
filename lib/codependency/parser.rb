@@ -4,7 +4,7 @@ module Codependency
     def parse( file )
       IO.readlines( file ).take_while do |line|
         line =~ pattern
-      end.map { |line| line[ pattern, 1 ].to_sym }
+      end.map { |line| line[ pattern, 1 ] }
     end
 
     protected
