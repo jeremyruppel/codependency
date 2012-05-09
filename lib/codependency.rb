@@ -1,5 +1,5 @@
-require "codependency/version"
+require 'codependency/version'
 
 module Codependency
-  # Your code goes here...
+  autoload :Parser, 'codependency/parser'
 end
