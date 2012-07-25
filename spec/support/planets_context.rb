@@ -1,42 +1,36 @@
 shared_context 'solar system', :files => :planets do
+  def file( filename, contents )
+    IO.stub( :readlines ).with( filename ){ contents.strip.split( /^\s+/ ) }
+  end
+
   before do
-    IO.stub( :readlines ) do |arg|
-      case File.basename( arg, '.rb' ).to_sym
-      when :body
-        """
-        class Body
-        end
-        """
-      when :earth
-        """
-        # require planet
+    file 'body.rb', <<-end
+    class Body
+    end
 
-        class Earth
-        end
-        """
-      when :mars
-        """
-        # require planet
+    file 'earth.rb', <<-end
+    # require planet
 
-        class Mars
-        end
-        """
-      when :phobos
-        """
-        # require body
-        # require mars
+    class Earth
+    end
 
-        class Phobos
-        end
-        """
-      when :planet
-        """
-        # require body
+    file 'mars.rb', <<-end
+    # require planet
 
-        class Planet
-        end
-        """
-      end.strip.split( /^\s+/ )
+    class Mars
+    end
+
+    file 'phobos.rb', <<-end
+    # require body
+    # require mars
+
+    class Phobos
+    end
+
+    file 'planet.rb', <<-end
+    # require body
+
+    class Planet
     end
   end
 
