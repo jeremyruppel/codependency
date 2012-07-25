@@ -1,48 +1,7 @@
 require 'spec_helper'
 
-describe Codependency::Parser do
+describe Codependency::Parser, :files => :planets do
   let( :parser ){ Codependency::Parser.new }
-
-  before do
-    IO.stub( :readlines ) do |arg|
-      case File.basename( arg, '.rb' ).to_sym
-      when :body
-        """
-        class Body
-        end
-        """
-      when :earth
-        """
-        # require planet
-
-        class Earth
-        end
-        """
-      when :mars
-        """
-        # require planet
-
-        class Mars
-        end
-        """
-      when :phobos
-        """
-        # require body
-        # require mars
-
-        class Phobos
-        end
-        """
-      when :planet
-        """
-        # require body
-
-        class Planet
-        end
-        """
-      end.strip.split( /^\s+/ )
-    end
-  end
 
   context 'body' do
     subject { parser.parse( "body.rb" ) }
