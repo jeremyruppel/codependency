@@ -1,5 +1,6 @@
 shared_context 'solar system', :files => :planets do
   def file( filename, contents )
+    File.stub( :exist?  ).with( filename ){ true }
     IO.stub( :readlines ).with( filename ){ contents.strip.split( /^\s+/ ) }
   end
 

@@ -3,7 +3,7 @@ require 'pathname'
 module Codependency
   class Node
     def initialize( filename )
-      raise Errno::ENOENT unless File.exist?( filename )
+      raise Errno::ENOENT, filename unless File.exist?( filename )
       @filename = filename
     end
     attr_reader :filename

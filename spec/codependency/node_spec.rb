@@ -1,19 +1,17 @@
 require 'spec_helper'
 
 describe Codependency::Node do
-  let( :path ){ File.join( File.dirname( __FILE__ ), '../fixtures' ) }
+  context 'when the file exists', :files => :planets do
+    subject { Codependency::Node.new 'planet.rb' }
 
-  context 'when the file exists' do
-    subject { Codependency::Node.new "#{path}/planet.rb" }
-
-    its( :dependencies ){ should eq( [ "#{path}/body.rb" ] ) }
+    its( :dependencies ){ should eq( [ 'body.rb' ] ) }
   end
 
   context 'when the file does not exist' do
     it 'should raise an error' do
       expect {
-        Codependency::Node.new "#{path}/pluto.rb"
-      }.to raise_error( Errno::ENOENT )
+        Codependency::Node.new 'pluto.rb'
+      }.to raise_error( Errno::ENOENT, 'No such file or directory - pluto.rb' )
     end
   end
 end
