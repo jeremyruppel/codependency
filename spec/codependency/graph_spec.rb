@@ -1,14 +1,17 @@
 require 'spec_helper'
 
-describe Codependency::Graph, :files => :planets do
-  subject { Codependency::Graph.new 'phobos.rb' }
+describe Codependency::Graph do
+  context 'planets', :files => :planets do
+    subject { Codependency::Graph.new graph }
 
-  its( :files ){ should eq(
-    [
-      'body.rb',
-      'planet.rb',
-      'mars.rb',
-      'phobos.rb'
-    ]
-  ) }
+    context 'earth' do
+      let( :graph ){ 'earth.rb' }
+      its( :files ){ should eq( %w| body.rb planet.rb earth.rb | ) }
+    end
+
+    context 'phobos' do
+      let( :graph ){ 'phobos.rb' }
+      its( :files ){ should eq( %w| body.rb planet.rb mars.rb phobos.rb | ) }
+    end
+  end
 end
