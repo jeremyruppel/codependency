@@ -1,7 +1,7 @@
 module Codependency
   class Graph
     def initialize( start )
-      @nodes = Hash.new { |h, k| h[ k ] = Node.new( k ) }
+      @nodes = Hash.new { |h, k| h[ k ] = Node.new( k, parser ) }
       @start = @nodes[ start ]
     end
 
@@ -21,6 +21,10 @@ module Codependency
           resolve dep, list
         end
       end
+    end
+
+    def parser
+      @parser ||= Parser.new
     end
   end
 end

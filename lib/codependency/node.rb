@@ -2,11 +2,12 @@ require 'pathname'
 
 module Codependency
   class Node
-    def initialize( filename )
+    def initialize( filename, parser )
       raise Errno::ENOENT, filename unless File.exist?( filename )
       @filename = filename
+      @parser   = parser
     end
-    attr_reader :filename
+    attr_reader :filename, :parser
 
     def dependencies
       parser.parse( filename ).map { |f| dirname.join( "#{f}#{extname}" ).to_s }
@@ -24,10 +25,6 @@ module Codependency
 
     def path
       @path ||= Pathname.new filename
-    end
-
-    def parser
-      @parser ||= Parser.new
     end
   end
 end
