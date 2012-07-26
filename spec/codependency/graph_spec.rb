@@ -1,16 +1,14 @@
 require 'spec_helper'
 
-describe Codependency::Graph do
-  let( :path ){ File.join( File.dirname( __FILE__ ), '../fixtures' ) }
-  subject { Codependency::Graph.new Dir[ File.join( path, '*.rb' ) ] }
+describe Codependency::Graph, :files => :planets do
+  subject { Codependency::Graph.new 'phobos.rb' }
 
   its( :files ){ should eq(
     [
-      "#{path}/body.rb",
-      "#{path}/planet.rb",
-      "#{path}/earth.rb",
-      "#{path}/mars.rb",
-      "#{path}/phobos.rb"
+      'body.rb',
+      'planet.rb',
+      'mars.rb',
+      'phobos.rb'
     ]
   ) }
 end

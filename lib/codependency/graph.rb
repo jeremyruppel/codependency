@@ -1,27 +1,25 @@
 module Codependency
   class Graph
-    def initialize( filenames )
-      @nodes = Hash[ filenames.map { |f| [ f, Node.new( f ) ] } ]
+    def initialize( start )
+      @nodes = Hash.new { |h, k| h[ k ] = Node.new( k ) }
+      @start = @nodes[ start ]
     end
-    attr_reader :nodes
 
     def files
-      nodes.reduce( [ ] ) do |list, (filename, node)|
-        resolve node, list
-        list
-      end
+      [ ].tap { |list| resolve @start, list }.reverse.map &:filename
     end
 
     protected
 
     def resolve( node, list )
-      unless list.include? node.filename
-        node.dependencies.each do |dep|
-          # TODO need to check here to make sure
-          # we actually have a node for this dependency
-          resolve nodes[ dep ], list
+      list << node # TODO if the node were in the list here,
+                   # would that indicate a circular dependency?
+      node.dependencies.map { |filename| @nodes[ filename ] }.each do |dep|
+        if list.include?( dep )
+          list << list.slice!( list.index( dep ) )
+        else
+          resolve dep, list
         end
-        list << node.filename
       end
     end
   end
