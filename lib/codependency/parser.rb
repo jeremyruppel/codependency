@@ -1,6 +1,11 @@
 module Codependency
   class Parser
 
+    def initialize( options={} )
+      @options = options
+      @comment = options.delete( :comment ) || '#'
+    end
+
     def parse( file )
       IO.readlines( file ).take_while do |line|
         line =~ pattern
@@ -10,7 +15,7 @@ module Codependency
     protected
 
     def pattern
-      @pattern ||= /^# require (.+)$/
+      @pattern ||= /^#{@comment} require (.+)$/
     end
   end
 end

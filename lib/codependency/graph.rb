@@ -1,8 +1,9 @@
 module Codependency
   class Graph
-    def initialize( start )
-      @nodes = Hash.new { |h, k| h[ k ] = Node.new( k, parser ) }
-      @start = @nodes[ start ]
+    def initialize( start, options={} )
+      @options = options
+      @nodes   = Hash.new { |h, k| h[ k ] = Node.new( k, parser ) }
+      @start   = @nodes[ start ]
     end
 
     def files
@@ -24,7 +25,7 @@ module Codependency
     end
 
     def parser
-      @parser ||= Parser.new
+      @parser ||= Parser.new @options
     end
   end
 end
