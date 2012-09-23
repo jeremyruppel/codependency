@@ -9,6 +9,8 @@ module Codependency
     end
     attr_reader :filename, :parser
 
+    ##
+    # all of this node's edges
     def edges
       @edges ||= begin
         parser.parse( filename ).map do |f|
@@ -17,6 +19,8 @@ module Codependency
       end
     end
 
+    ##
+    # a string representing this node's edges, formatted for `tsort`.
     def dependencies
       edges.map { |edge| [ filename, edge ] }.flatten.join ' '
     end

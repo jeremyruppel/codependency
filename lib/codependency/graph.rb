@@ -8,6 +8,8 @@ module Codependency
       @start   = @nodes[ start ]
     end
 
+    ##
+    # a topologically sorted list of all dependencies of the `start` file.
     def files
       deps = resolve( @start, [ ] ).map( &:dependencies ).join ' '
 
@@ -22,20 +24,21 @@ module Codependency
 
     protected
 
+    ##
+    # adds a node's dependencies to a list (memo).
+    # intended to be used recursively.
     def resolve( node, list )
       list << node
 
       node.edges.map { |filename| @nodes[ filename ] }.each do |dep|
-        if list.include?( dep )
-          list << list.slice!( list.index( dep ) )
-        else
-          resolve dep, list
-        end
+        resolve dep, list unless list.include?( dep )
       end
 
       list
     end
 
+    ##
+    # the parser to use for this graph. shared by all nodes.
     def parser
       @parser ||= Parser.new @options
     end
