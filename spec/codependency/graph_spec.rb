@@ -20,7 +20,17 @@ describe Codependency::Graph do
 
     context 'sandwich' do
       let( :graph ){ 'sandwich.js' }
-      its( :files ){ should eq( %w| butter.js toast.js egg.js sandwich.js | ) }
+      its( :files ){ should eq( %w| butter.js egg.js toast.js sandwich.js | ) }
+    end
+  end
+
+  context 'circular dependencies', :files => :circular do
+    subject { Codependency::Graph.new graph }
+
+    let( :graph ){ 'money.rb' }
+
+    it 'should raise an error' do
+      expect { subject.files }.to raise_error( CircularDependencyError )
     end
   end
 end

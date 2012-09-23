@@ -5,7 +5,7 @@ describe Codependency::Node do
 
   context 'when the file exists', :files => :planets do
     subject { Codependency::Node.new 'planet.rb', parser }
-    its( :dependencies ){ should eq( [ 'body.rb' ] ) }
+    its( :edges ){ should eq( [ 'body.rb' ] ) }
   end
 
   context 'when the file does not exist' do
@@ -14,5 +14,12 @@ describe Codependency::Node do
         Codependency::Node.new 'pluto.rb', parser
       }.to raise_error( Errno::ENOENT, 'No such file or directory - pluto.rb' )
     end
+  end
+
+  describe 'dependencies', :files => :planets do
+    let( :parser ){ double 'Parser', :parse => [ 'body', 'mars' ] }
+    subject { Codependency::Node.new 'phobos.rb', parser }
+
+    its( :dependencies ){ should eq( 'phobos.rb body.rb phobos.rb mars.rb' ) }
   end
 end

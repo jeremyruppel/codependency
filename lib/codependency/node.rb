@@ -9,8 +9,16 @@ module Codependency
     end
     attr_reader :filename, :parser
 
+    def edges
+      @edges ||= begin
+        parser.parse( filename ).map do |f|
+          dirname.join( "#{f}#{extname}" ).to_s
+        end
+      end
+    end
+
     def dependencies
-      parser.parse( filename ).map { |f| dirname.join( "#{f}#{extname}" ).to_s }
+      edges.map { |edge| [ filename, edge ] }.flatten.join ' '
     end
 
     protected
