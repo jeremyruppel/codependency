@@ -1,6 +1,8 @@
 # Codependency
 
-Codependency is a simple comment-based dependency graph that you can use on arbitrary files. At the moment, it only supports ruby-style comments, files with the `.rb` extension, and files in the same flat directory.
+Codependency is a simple comment-based dependency graph that you can use on arbitrary files.
+
+It uses the program `tsort` under the hood, so sorry windoze I guess?
 
 ## Installation
 
