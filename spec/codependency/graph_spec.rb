@@ -33,4 +33,13 @@ describe Codependency::Graph do
       expect { subject.files }.to raise_error( CircularDependencyError )
     end
   end
+
+  context 'subdirectories', :files => :subdirectories do
+    subject { Codependency::Graph.new graph, :comment => '//' }
+
+    context 'application.js' do
+      let( :graph ){ 'application.js' }
+      its( :files ){ should eq( %w| templates/user/history.js templates/user/account.js templates/user.js application.js | ) }
+    end
+  end
 end
