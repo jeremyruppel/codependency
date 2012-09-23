@@ -15,5 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Codependency::VERSION
 
-  gem.add_development_dependency 'rspec', '>= 2.10.0'
+  gem.add_development_dependency 'rspec',       '2.11.0'
+  gem.add_development_dependency 'guard-rspec', '1.2.1'
 end
