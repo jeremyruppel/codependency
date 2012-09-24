@@ -1,17 +1,17 @@
 require 'open3'
 
 module Codependency
-  class Graph
+  class Graph < Hash
     def initialize( start, options={} )
-      @options = options
-      @nodes   = Hash.new { |h, k| h[ k ] = Node.new( k, parser ) }
-      @start   = @nodes[ start ]
+      @start, @options = start, options
+
+      super( ) { |h, k| h[ k ] = Node.new( k, parser ) }
     end
 
     ##
     # a topologically sorted list of all dependencies of the `start` file.
     def files
-      deps = resolve( @start, [ ] ).map( &:dependencies ).join ' '
+      deps = resolve( self[ @start ], [ ] ).map( &:dependencies ).join ' '
 
       cmd, out, err = Open3.popen3 "echo '#{deps}' | tsort"
 
@@ -30,7 +30,7 @@ module Codependency
     def resolve( node, list )
       list << node
 
-      node.edges.map { |filename| @nodes[ filename ] }.each do |dep|
+      node.edges.map { |filename| self[ filename ] }.each do |dep|
         resolve dep, list unless list.include?( dep )
       end
 
