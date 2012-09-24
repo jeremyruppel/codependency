@@ -67,8 +67,8 @@ describe Codependency::Graph do
     subject { described_class.new start, :comment => '//' }
 
     context 'application.js' do
-      let( :start ){ './application.js' }
-      its( :files ){ should eq( %w| ./templates/user/history.js ./templates/user/account.js ./templates/user.js ./application.js | ) }
+      let( :start ){ 'assets/application.js' }
+      its( :files ){ should eq( %w| assets/templates/user/history.js assets/templates/user/account.js assets/templates/user.js assets/application.js | ) }
     end
   end
 end
