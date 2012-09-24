@@ -4,6 +4,8 @@ module Codependency
     def initialize( options={} )
       @options = options
       @comment = options.delete( :comment ) || '#'
+      @dirname = options.delete( :dirname ) || '.'
+      @extname = options.delete( :extname ) || '.rb'
     end
 
     ##
@@ -11,7 +13,7 @@ module Codependency
     def parse( file )
       IO.readlines( file ).take_while do |line|
         line =~ pattern
-      end.map { |line| line[ pattern, 1 ] }
+      end.map { |line| "#{@dirname}/#{line[ pattern, 1 ]}#{@extname}" }
     end
 
     protected

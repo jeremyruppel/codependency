@@ -1,46 +1,53 @@
-require 'open3'
+require 'tsort'
 
 module Codependency
   class Graph < Hash
-    def initialize( start, options={} )
-      @start, @options = start, options
+    def initialize( path, options={} )
+      @path, @options = path, options
 
-      super( ) { |h, k| h[ k ] = Node.new( k, parser ) }
+      super( ){ |h, k| h[ k ] = parser.parse( k ) }
+    end
+    attr_reader :path, :options
+
+    include TSort
+
+    def dirname
+      File.dirname path
     end
 
-    ##
-    # a topologically sorted list of all dependencies of the `start` file.
-    def files
-      deps = resolve( self[ @start ], [ ] ).map( &:dependencies ).join ' '
-
-      cmd, out, err = Open3.popen3 "echo '#{deps}' | tsort"
-
-      if msg = err.gets
-        raise CircularDependencyError, msg
-      end
-
-      out.readlines.map( &:chomp ).reverse
+    def extname
+      File.extname path
     end
 
-    protected
+    def populate
+      walk path
+      self
+    end
 
-    ##
-    # adds a node's dependencies to a list (memo).
-    # intended to be used recursively.
-    def resolve( node, list )
-      list << node
-
-      node.edges.map { |filename| self[ filename ] }.each do |dep|
-        resolve dep, list unless list.include?( dep )
-      end
-
-      list
+    def walk( path )
+      self[ path ].each { |path| walk( path ) unless has_key?( path ) }
     end
 
     ##
     # the parser to use for this graph. shared by all nodes.
     def parser
-      @parser ||= Parser.new @options
+      @parser ||= begin
+        Parser.new options.merge( :dirname => dirname, :extname => extname )
+      end
+    end
+
+    ##
+    # a topologically sorted list of all dependencies of the `start` file.
+    def files
+      populate.tsort
+    end
+
+    protected
+
+    alias :tsort_each_node :each_key
+
+    def tsort_each_child( node, &block )
+      fetch( node ).each( &block )
     end
   end
 end

@@ -5,5 +5,3 @@ module Codependency
   autoload :Node,   'codependency/node'
   autoload :Parser, 'codependency/parser'
 end
-
-class CircularDependencyError < StandardError; end

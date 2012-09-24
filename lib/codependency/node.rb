@@ -1,7 +1,6 @@
 module Codependency
   class Node
     def initialize( filename, parser )
-      raise Errno::ENOENT, filename unless File.exist?( filename )
       @filename = filename
       @parser   = parser
     end
