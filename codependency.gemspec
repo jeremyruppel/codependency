@@ -4,8 +4,8 @@ require File.expand_path('../lib/codependency/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Jeremy Ruppel"]
   gem.email         = ["jeremy.ruppel@gmail.com"]
-  gem.description   = %q{Simple comment-based dependency graph for arbitrary files}
-  gem.summary       = %q{Simple comment-based dependency graph for arbitrary files}
+  gem.description   = %q{A pure ruby, comment-based dependency graph}
+  gem.summary       = %q{A pure ruby, comment-based dependency graph}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)

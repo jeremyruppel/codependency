@@ -2,8 +2,6 @@
 
 Codependency is a simple comment-based dependency graph that you can use on arbitrary files.
 
-It uses the program `tsort` under the hood, so sorry windoze I guess?
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -41,8 +39,8 @@ end
 Then, we create a dependency graph to determine the order in which the files might need to be loaded, inserted, or compiled:
 
 ``` rb
-graph = Codependency::Graph.new %w| bar.rb foo.rb |
-graph.files # => ["foo.rb", "bar.rb"]
+graph = Codependency::Graph.new "bar.rb"
+graph.files # => ["./foo.rb", "./bar.rb"]
 ```
 
 ## Contributing

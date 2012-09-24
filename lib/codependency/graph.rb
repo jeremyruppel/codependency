@@ -11,19 +11,27 @@ module Codependency
 
     include TSort
 
+    ##
+    # the dirname to use for this graph, based on the path
     def dirname
       File.dirname path
     end
 
+    ##
+    # the extname to use for this graph, based on the path
     def extname
       File.extname path
     end
 
+    ##
+    # walk the entire graph and return self
     def populate
       walk path
       self
     end
 
+    ##
+    # discover all nodes in this graph by walking it
     def walk( path )
       self[ path ].each { |path| walk( path ) unless has_key?( path ) }
     end
@@ -42,10 +50,12 @@ module Codependency
       populate.tsort
     end
 
-    protected
+    private
 
+    # tsort interface
     alias :tsort_each_node :each_key
 
+    # tsort interface
     def tsort_each_child( node, &block )
       fetch( node ).each( &block )
     end
