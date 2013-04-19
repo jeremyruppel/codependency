@@ -1,6 +1,8 @@
 # Codependency
 
-Codependency is a simple comment-based dependency graph that you can use on arbitrary files.
+Codependency is a simple comment-based dependency graph that you can use on
+arbitrary files. The comment syntax should look familiar to anyone who has
+used Sprockets, but is not nearly as robust (yet).
 
 ## Installation
 
@@ -43,7 +45,8 @@ Then, we create a dependency graph to determine the order in which the files mig
 ``` rb
 graph = Codependency::Graph.new
 graph.path << '.' # works like PATH, append search paths for this graph
-graph.files # => ["./foo.rb", "./bar.rb"] # returns a topologically sorted list of relative filepaths
+graph << 'bar'    # adds a file to this graph, finds its dependencies recursively
+graph.files       # returns a topologically sorted list of relative pathnames
 ```
 
 ## Contributing
