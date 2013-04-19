@@ -1,0 +1,6 @@
+{
+  "breakfast/egg"    => [
+    [0] "breakfast/butter"
+  ],
+  "breakfast/butter" => []
+}

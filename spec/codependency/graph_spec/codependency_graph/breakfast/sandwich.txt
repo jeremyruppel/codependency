@@ -1,0 +1,13 @@
+{
+  "breakfast/sandwich" => [
+    [0] "breakfast/egg",
+    [1] "breakfast/toast"
+  ],
+  "breakfast/egg"      => [
+    [0] "breakfast/butter"
+  ],
+  "breakfast/butter"   => [],
+  "breakfast/toast"    => [
+    [0] "breakfast/butter"
+  ]
+}

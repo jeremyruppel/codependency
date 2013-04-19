@@ -13,7 +13,7 @@ module Codependency
     ##
     # The path set for this dependency graph.
     def path
-      @path ||= Path.new '.rb'
+      @path ||= Path.new parser.extensions
     end
 
     ##

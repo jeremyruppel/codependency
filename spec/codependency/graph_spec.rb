@@ -23,12 +23,12 @@ describe Codependency::Graph do
       example( 'phobos' ){ verify { subject } }
       example( 'planet' ){ verify { subject } }
     end
-    # describe 'breakfast' do
-    #   example( 'butter'   ){ verify { subject } }
-    #   example( 'egg'      ){ verify { subject } }
-    #   example( 'sandwich' ){ verify { subject } }
-    #   example( 'toast'    ){ verify { subject } }
-    # end
+    describe 'breakfast' do
+      example( 'butter'   ){ verify { subject } }
+      example( 'egg'      ){ verify { subject } }
+      example( 'sandwich' ){ verify { subject } }
+      example( 'toast'    ){ verify { subject } }
+    end
     describe 'lox' do
       example( 'money'   ){ verify { subject } }
       example( 'power'   ){ verify { subject } }

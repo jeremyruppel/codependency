@@ -16,5 +16,9 @@ module Codependency
         line =~ pattern
       end.map { |line| line[ pattern, 1 ] }
     end
+
+    def extensions
+      PATTERNS.keys
+    end
   end
 end
