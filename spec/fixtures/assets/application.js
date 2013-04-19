@@ -1,1 +1,1 @@
-// require assets/templates/user
+//= require assets/templates/user

@@ -1,4 +1,4 @@
-# require solar_system/body
+#= require solar_system/body
 
 class Planet
 end

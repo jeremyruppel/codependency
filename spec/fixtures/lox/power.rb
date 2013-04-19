@@ -1,4 +1,4 @@
-# require lox/respect
+#= require lox/respect
 
 class Power
 end

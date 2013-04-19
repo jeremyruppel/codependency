@@ -1,4 +1,4 @@
-# require lox/power
+#= require lox/power
 
 class Money
 end

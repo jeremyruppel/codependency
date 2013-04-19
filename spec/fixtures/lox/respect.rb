@@ -1,4 +1,4 @@
-# require lox/money
+#= require lox/money
 
 class Respect
 end

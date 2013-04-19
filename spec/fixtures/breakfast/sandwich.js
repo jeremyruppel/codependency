@@ -1,4 +1,4 @@
-// require breakfast/egg
-// require breakfast/toast
+//= require breakfast/egg
+//= require breakfast/toast
 
 var Sandwich = { };

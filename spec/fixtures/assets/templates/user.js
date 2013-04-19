@@ -1,4 +1,4 @@
-// require assets/templates/history
-// require assets/templates/account
+//= require assets/templates/history
+//= require assets/templates/account
 
 var User = { };

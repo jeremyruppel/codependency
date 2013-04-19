@@ -1,3 +1,3 @@
-// require breakfast/butter
+//= require breakfast/butter
 
 var Toast = { };

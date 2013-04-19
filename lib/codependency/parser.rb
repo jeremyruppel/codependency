@@ -4,8 +4,8 @@ module Codependency
     PATTERNS = Hash.new { |hash, key|
       raise "Unknown extension '#{key}'. Known extensions are #{hash.keys.inspect}."
     }
-    PATTERNS[ '.rb' ] = /^# require ([\w\/]+)$/
-    PATTERNS[ '.js' ] = /^\/\/ require ([\w\/]+)$/
+    PATTERNS[ '.rb' ] = /^#= require ([\w\/]+)$/
+    PATTERNS[ '.js' ] = /^\/\/= require ([\w\/]+)$/
 
     ##
     # Determines a file's dependencies based on the file's extension.
