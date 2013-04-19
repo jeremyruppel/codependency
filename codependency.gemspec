@@ -6,7 +6,8 @@ Gem::Specification.new do |gem|
   gem.email         = ["jeremy.ruppel@gmail.com"]
   gem.description   = %q{A pure ruby, comment-based dependency graph}
   gem.summary       = %q{A pure ruby, comment-based dependency graph}
-  gem.homepage      = ""
+  gem.homepage      = 'https://github.com/jeremyruppel/codependency'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
