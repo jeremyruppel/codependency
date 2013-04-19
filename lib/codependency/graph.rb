@@ -4,8 +4,9 @@ module Codependency
   class Graph < Hash
 
     def <<( file )
-      self[ file ] ||= parser.parse( path[ file + '.rb' ] ).each do |file|
-        self << file
+      self[ file ] ||= parser.parse path[ file + '.rb' ]
+      self[ file ].each do |file|
+        self << file unless key?( file )
       end
     end
 

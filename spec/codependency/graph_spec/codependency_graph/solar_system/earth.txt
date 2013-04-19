@@ -1,9 +1,9 @@
 {
-    "solar_system/body" => [],
+  "solar_system/earth"  => [
+    [0] "solar_system/planet"
+  ],
   "solar_system/planet" => [
     [0] "solar_system/body"
   ],
-   "solar_system/earth" => [
-    [0] "solar_system/planet"
-  ]
+  "solar_system/body"   => []
 }

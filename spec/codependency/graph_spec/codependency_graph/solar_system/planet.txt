@@ -1,6 +1,6 @@
 {
-    "solar_system/body" => [],
   "solar_system/planet" => [
     [0] "solar_system/body"
-  ]
+  ],
+  "solar_system/body"   => []
 }

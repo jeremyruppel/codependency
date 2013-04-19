@@ -29,6 +29,11 @@ describe Codependency::Graph do
     #   example( 'sandwich' ){ verify { subject } }
     #   example( 'toast'    ){ verify { subject } }
     # end
+    describe 'lox' do
+      example( 'money'   ){ verify { subject } }
+      example( 'power'   ){ verify { subject } }
+      example( 'respect' ){ verify { subject } }
+    end
   end
 
   # describe 'old shit', :broken => true do

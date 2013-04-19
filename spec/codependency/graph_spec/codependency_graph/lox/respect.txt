@@ -1,0 +1,11 @@
+{
+  "lox/respect" => [
+    [0] "lox/money"
+  ],
+  "lox/money"   => [
+    [0] "lox/power"
+  ],
+  "lox/power"   => [
+    [0] "lox/respect"
+  ]
+}
