@@ -4,7 +4,7 @@ module Codependency
   class Graph < Hash
 
     def <<( file )
-      self[ file ] ||= parser.parse path[ file + '.rb' ]
+      self[ file ] ||= parser.parse path[ file ]
       self[ file ].each do |file|
         self << file unless key?( file )
       end
@@ -13,7 +13,7 @@ module Codependency
     ##
     # The path set for this dependency graph.
     def path
-      @path ||= Path.new
+      @path ||= Path.new '.rb'
     end
 
     ##

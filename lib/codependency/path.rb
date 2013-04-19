@@ -3,6 +3,11 @@ require 'pathname'
 module Codependency
   class Path < Array
 
+    def initialize( extensions=%w| .rb | )
+      @extensions = Array(extensions)
+    end
+    attr_reader :extensions
+
     ##
     # Appends a path to this path set. If the path exists, it
     # will be expanded. Raises Errno::ENOENT if the path
@@ -37,8 +42,11 @@ module Codependency
     # Raises Errno::ENOENT if the file cannot be found.
     def find( str )
       super lambda { raise Errno::ENOENT, str } do |dir|
-        path = dir.join str
-        return path if path.exist?
+        path = extensions.find do |ext|
+          file = dir.join str + ext
+          break file if file.exist?
+        end
+        break path if path
       end
     end
   end

@@ -6,6 +6,7 @@ describe Codependency::Parser do
   let( :filename ){ "./spec/fixtures/#{dirname}/#{basename}" }
   let( :file     ){ Pathname( filename ) }
 
+  # TODO convert these to approvals?
   context 'solar_system' do
     example 'body.rb' do
       subject.parse( file ).should == [ ]
