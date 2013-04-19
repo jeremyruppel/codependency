@@ -3,12 +3,13 @@ require 'tsort'
 module Codependency
   class Graph < Hash
 
-    def <<( file )
+    def require( file )
       self[ file ] ||= parser.parse path[ file ]
       self[ file ].each do |file|
         self << file unless key?( file )
       end
     end
+    alias :<< :require
 
     ##
     # The path set for this dependency graph.

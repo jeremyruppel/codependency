@@ -8,7 +8,7 @@ describe Codependency::Graph do
     its( :path ){ should be_empty }
   end
 
-  describe '#<<' do
+  describe '#require' do
     let( :dirname  ){ example.example_group.description }
     let( :basename ){ example.description }
     let( :file     ){ File.join dirname, basename }
@@ -40,6 +40,10 @@ describe Codependency::Graph do
       example( 'templates/user'    ){ verify { subject } }
       example( 'application'       ){ verify { subject } }
     end
+  end
+
+  describe '#files' do
+
   end
 
   # describe 'old shit', :broken => true do
