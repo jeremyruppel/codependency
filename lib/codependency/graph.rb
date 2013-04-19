@@ -20,9 +20,11 @@ module Codependency
     alias :<< :require
 
     ##
-    # Returns the sorted list of files as determined by this graph.
+    # Returns the sorted list of files as determined by this graph,
+    # relative to the calling file.
     def files
-      tsort
+      here = Pathname( caller.first.split( ':' ).shift )
+      tsort.map { |file| path[ file ].relative_path_from( here ) }
     end
 
     ##

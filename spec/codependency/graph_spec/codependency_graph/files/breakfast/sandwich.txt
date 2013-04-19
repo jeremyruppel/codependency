@@ -1,6 +1,6 @@
 [
-  [0] "breakfast/butter",
-  [1] "breakfast/egg",
-  [2] "breakfast/toast",
-  [3] "breakfast/sandwich"
+  [0] #<Pathname:../../fixtures/breakfast/butter.js>,
+  [1] #<Pathname:../../fixtures/breakfast/egg.js>,
+  [2] #<Pathname:../../fixtures/breakfast/toast.js>,
+  [3] #<Pathname:../../fixtures/breakfast/sandwich.js>
 ]

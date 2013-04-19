@@ -1,0 +1,5 @@
+[
+  [0] "assets/templates/history",
+  [1] "assets/templates/account",
+  [2] "assets/templates/user"
+]

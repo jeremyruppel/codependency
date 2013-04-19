@@ -1,4 +1,4 @@
 [
-  [0] "breakfast/butter",
-  [1] "breakfast/toast"
+  [0] #<Pathname:../../fixtures/breakfast/butter.js>,
+  [1] #<Pathname:../../fixtures/breakfast/toast.js>
 ]

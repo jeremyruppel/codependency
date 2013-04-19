@@ -1,0 +1,4 @@
+[
+  [0] "solar_system/body",
+  [1] "solar_system/planet"
+]

@@ -42,6 +42,40 @@ describe Codependency::Graph do
     end
   end
 
+  describe '#tsort' do
+    let( :dirname  ){ example.example_group.description }
+    let( :basename ){ example.description }
+    let( :file     ){ File.join dirname, basename }
+
+    before { subject.path << './spec/fixtures' }
+    before { subject << file }
+
+    describe 'solar_system' do
+      example( 'body'   ){ verify { subject.tsort } }
+      example( 'earth'  ){ verify { subject.tsort } }
+      example( 'mars'   ){ verify { subject.tsort } }
+      example( 'phobos' ){ verify { subject.tsort } }
+      example( 'planet' ){ verify { subject.tsort } }
+    end
+    describe 'breakfast' do
+      example( 'butter'   ){ verify { subject.tsort } }
+      example( 'egg'      ){ verify { subject.tsort } }
+      example( 'sandwich' ){ verify { subject.tsort } }
+      example( 'toast'    ){ verify { subject.tsort } }
+    end
+    describe 'lox' do
+      example( 'money'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'power'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'respect' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+    end
+    describe 'assets' do
+      example( 'templates/account' ){ verify { subject.tsort } }
+      example( 'templates/history' ){ verify { subject.tsort } }
+      example( 'templates/user'    ){ verify { subject.tsort } }
+      example( 'application'       ){ verify { subject.tsort } }
+    end
+  end
+
   describe '#files' do
     let( :dirname  ){ example.example_group.description }
     let( :basename ){ example.description }
@@ -64,9 +98,9 @@ describe Codependency::Graph do
       example( 'toast'    ){ verify { subject.files } }
     end
     describe 'lox' do
-      example( 'money'   ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
-      example( 'power'   ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
-      example( 'respect' ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
+      example( 'money'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'power'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'respect' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
     end
     describe 'assets' do
       example( 'templates/account' ){ verify { subject.files } }
