@@ -34,6 +34,12 @@ describe Codependency::Graph do
       example( 'power'   ){ verify { subject } }
       example( 'respect' ){ verify { subject } }
     end
+    describe 'assets' do
+      example( 'templates/account' ){ verify { subject } }
+      example( 'templates/history' ){ verify { subject } }
+      example( 'templates/user'    ){ verify { subject } }
+      example( 'application'       ){ verify { subject } }
+    end
   end
 
   # describe 'old shit', :broken => true do

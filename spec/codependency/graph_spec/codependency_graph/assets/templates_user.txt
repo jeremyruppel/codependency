@@ -1,0 +1,8 @@
+{
+  "assets/templates/user"    => [
+    [0] "assets/templates/history",
+    [1] "assets/templates/account"
+  ],
+  "assets/templates/history" => [],
+  "assets/templates/account" => []
+}
