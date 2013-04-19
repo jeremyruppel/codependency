@@ -1,28 +1,20 @@
 module Codependency
   class Parser
 
-    def initialize( options={} )
-      @options = options
-      @comment = options.delete( :comment ) || '#'
-      @dirname = options.delete( :dirname ) || '.'
-      @extname = options.delete( :extname ) || '.rb'
-    end
+    PATTERNS = Hash.new { |hash, key|
+      raise "Unknown extension '#{key}'. Known extensions are #{hash.keys.inspect}."
+    }
+    PATTERNS[ '.rb' ] = /^# require ([\w\/]+)$/
+    PATTERNS[ '.js' ] = /^\/\/ require ([\w\/]+)$/
 
     ##
-    # determines a file's dependencies based on the configured comment pattern.
+    # Determines a file's dependencies based on the file's extension.
     def parse( file )
+      pattern = PATTERNS[ File.extname( file ) ]
+
       IO.readlines( file ).take_while do |line|
         line =~ pattern
-      end.map { |line| "#{@dirname}/#{line[ pattern, 1 ]}#{@extname}" }
-    end
-
-    protected
-
-    ##
-    # the comment pattern to use.
-    # TODO allow this to be more configurable
-    def pattern
-      @pattern ||= /^#{@comment} require (.+)$/
+      end.map { |line| line[ pattern, 1 ] }
     end
   end
 end

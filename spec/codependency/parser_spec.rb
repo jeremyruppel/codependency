@@ -1,49 +1,56 @@
 require 'spec_helper'
 
 describe Codependency::Parser do
-  context 'planets', :files => :planets do
-    let( :parser ){ Codependency::Parser.new }
+  let( :dirname  ){ example.example_group.description }
+  let( :basename ){ example.description }
+  let( :filename ){ "./spec/fixtures/#{dirname}/#{basename}" }
+  let( :file     ){ Pathname( filename ) }
 
-    context 'body' do
-      subject { parser.parse( './body.rb' ) }
-      it { should eq( [ ] ) }
+  context 'solar_system' do
+    example 'body.rb' do
+      subject.parse( file ).should == [ ]
     end
-    context 'earth' do
-      subject { parser.parse( './earth.rb' ) }
-      it { should eq( [ './planet.rb' ] ) }
+    example 'earth.rb' do
+      subject.parse( file ).should == [
+        'solar_system/planet'
+      ]
     end
-    context 'mars' do
-      subject { parser.parse( './mars.rb' ) }
-      it { should eq( [ './planet.rb' ] ) }
+    example 'mars.rb' do
+      subject.parse( file ).should == [
+        'solar_system/planet'
+      ]
     end
-    context 'phobos' do
-      subject { parser.parse( './phobos.rb' ) }
-      it { should eq( [ './body.rb', './mars.rb' ] ) }
+    example 'phobos.rb' do
+      subject.parse( file ).should == [
+        'solar_system/body',
+        'solar_system/mars'
+      ]
     end
-    context 'planet' do
-      subject { parser.parse( './planet.rb' ) }
-      it { should eq( [ './body.rb' ] ) }
+    example 'planet.rb' do
+      subject.parse( file ).should == [
+        'solar_system/body'
+      ]
     end
   end
-
-  context 'breakfasts', :files => :breakfasts do
-    let( :parser ){ Codependency::Parser.new :comment => '//', :extname => '.js' }
-
-    context 'butter' do
-      subject { parser.parse( './butter.js' ) }
-      it { should eq( [ ] ) }
+  context 'breakfast' do
+    example 'butter.js' do
+      subject.parse( file ).should == [ ]
     end
-    context 'egg' do
-      subject { parser.parse( './egg.js' ) }
-      it { should eq( [ './butter.js' ] ) }
+    example 'egg.js' do
+      subject.parse( file ).should == [
+        'breakfast/butter'
+      ]
     end
-    context 'toast' do
-      subject { parser.parse( './toast.js' ) }
-      it { should eq( [ './butter.js' ] ) }
+    example 'toast.js' do
+      subject.parse( file ).should == [
+        'breakfast/butter'
+      ]
     end
-    context 'sandwich' do
-      subject { parser.parse( './sandwich.js' ) }
-      it { should eq( [ './egg.js', './toast.js' ] ) }
+    example 'sandwich.js' do
+      subject.parse( file ).should == [
+        'breakfast/egg',
+        'breakfast/toast'
+      ]
     end
   end
 end
