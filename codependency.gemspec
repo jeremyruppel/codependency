@@ -15,7 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Codependency::VERSION
 
-  gem.add_development_dependency 'rspec',       '2.11.0'
-  gem.add_development_dependency 'guard-rspec', '1.2.1'
-  gem.add_development_dependency 'rb-fsevent',  '0.9.1'
+  gem.add_development_dependency 'rspec',         '2.12.0'
+  gem.add_development_dependency 'guard-rspec',   '1.2.1'
+  gem.add_development_dependency 'rb-fsevent',    '0.9.1'
+  gem.add_development_dependency 'git-approvals', '0.1.4'
 end

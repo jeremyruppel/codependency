@@ -9,20 +9,26 @@ describe Codependency::Graph do
   end
 
   describe '#<<' do
-    before { subject.path << './spec/fixtures' }
+    let( :dirname  ){ example.example_group.description }
+    let( :basename ){ example.description }
+    let( :file     ){ File.join dirname, basename }
 
-    it 'adds a file with no dependencies to the graph' do
-      subject << 'solar_system/body'
-      subject[ 'solar_system/body' ].should == [ ]
+    before { subject.path << './spec/fixtures' }
+    before { subject << file }
+
+    describe 'solar_system' do
+      example( 'body'   ){ verify { subject } }
+      example( 'earth'  ){ verify { subject } }
+      example( 'mars'   ){ verify { subject } }
+      example( 'phobos' ){ verify { subject } }
+      example( 'planet' ){ verify { subject } }
     end
-    it 'adds a file with dependencies to the graph' do
-      subject << 'solar_system/planet'
-      subject[ 'solar_system/planet' ].should == [ 'solar_system/body' ]
-    end
-    it 'adds the dependent files to the graph' do
-      subject << 'solar_system/planet'
-      subject[ 'solar_system/body' ].should == [ ]
-    end
+    # describe 'breakfast' do
+    #   example( 'butter'   ){ verify { subject } }
+    #   example( 'egg'      ){ verify { subject } }
+    #   example( 'sandwich' ){ verify { subject } }
+    #   example( 'toast'    ){ verify { subject } }
+    # end
   end
 
   # describe 'old shit', :broken => true do
