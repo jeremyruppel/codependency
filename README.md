@@ -18,12 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-Say you have two files, `bar.rb` and `foo.rb`. `bar` comes before `foo` in a natural naming scheme, but `bar` has a dependency on `foo`. We can express this using a simple comment syntax at the head of the file like this:
+Say you have two files, `bar.rb` and `foo.rb`. `bar` comes before `foo` in a
+natural naming scheme, but `bar` has a dependency on `foo`. We can express
+this using a simple comment syntax at the head of the file like this:
 
 **bar.rb:**
 
 ``` rb
-# require foo
+#= require foo
 
 class Bar
 end
@@ -39,8 +41,9 @@ end
 Then, we create a dependency graph to determine the order in which the files might need to be loaded, inserted, or compiled:
 
 ``` rb
-graph = Codependency::Graph.new "bar.rb"
-graph.files # => ["./foo.rb", "./bar.rb"]
+graph = Codependency::Graph.new
+graph.path << '.' # works like PATH, append search paths for this graph
+graph.files # => ["./foo.rb", "./bar.rb"] # returns a topologically sorted list of relative filepaths
 ```
 
 ## Contributing
