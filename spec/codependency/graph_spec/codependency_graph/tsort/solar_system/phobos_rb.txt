@@ -1,6 +1,6 @@
 [
-  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb",
-  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb",
-  [2] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb",
-  [3] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/phobos.rb"
+  [0] "spec/fixtures/solar_system/body.rb",
+  [1] "spec/fixtures/solar_system/planet.rb",
+  [2] "spec/fixtures/solar_system/mars.rb",
+  [3] "spec/fixtures/solar_system/phobos.rb"
 ]

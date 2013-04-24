@@ -1,11 +1,11 @@
 {
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/money.rb"   => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/power.rb"
+  "spec/fixtures/lox/money.rb"   => [
+    [0] "spec/fixtures/lox/power.rb"
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/power.rb"   => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/respect.rb"
+  "spec/fixtures/lox/power.rb"   => [
+    [0] "spec/fixtures/lox/respect.rb"
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/respect.rb" => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/lox/money.rb"
+  "spec/fixtures/lox/respect.rb" => [
+    [0] "spec/fixtures/lox/money.rb"
   ]
 }

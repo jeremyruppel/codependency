@@ -1,6 +1,6 @@
 {
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb" => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"
+  "spec/fixtures/solar_system/planet.rb" => [
+    [0] "spec/fixtures/solar_system/body.rb"
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"   => []
+  "spec/fixtures/solar_system/body.rb"   => []
 }

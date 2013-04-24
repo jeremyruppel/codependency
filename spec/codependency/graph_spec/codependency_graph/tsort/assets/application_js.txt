@@ -1,6 +1,6 @@
 [
-  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js",
-  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js",
-  [2] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js",
-  [3] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/application.js"
+  [0] "spec/fixtures/assets/templates/history.js",
+  [1] "spec/fixtures/assets/templates/account.js",
+  [2] "spec/fixtures/assets/templates/user.js",
+  [3] "spec/fixtures/assets/application.js"
 ]
