@@ -1,13 +1,13 @@
 {
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/phobos.rb" => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb",
-    [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb"
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/phobos.rb> => [
+    [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb>,
+    [1] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb>
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"   => [],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb"   => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb"
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb>   => [],
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb>   => [
+    [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb>
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb" => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb> => [
+    [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb>
   ]
 }

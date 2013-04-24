@@ -1,6 +1,6 @@
 [
-  [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js>,
-  [1] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js>,
-  [2] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/toast.js>,
-  [3] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/sandwich.js>
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js",
+  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js",
+  [2] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/toast.js",
+  [3] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/sandwich.js"
 ]

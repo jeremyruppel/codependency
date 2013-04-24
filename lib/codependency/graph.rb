@@ -10,10 +10,10 @@ module Codependency
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
-      file = File.expand_path string
+      file = Pathname( string ).expand_path
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path[ short ].to_path
+        path[ short ]
       end
       self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end
@@ -23,7 +23,7 @@ module Codependency
     # Returns the sorted list of files as determined by this graph,
     # relative to the calling file.
     def files
-      tsort.map { |file| Pathname( file ) }
+      tsort.map( &:to_path )
     end
 
     ##

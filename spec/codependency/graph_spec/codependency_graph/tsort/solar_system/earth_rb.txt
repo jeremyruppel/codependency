@@ -1,5 +1,5 @@
 [
-  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb",
-  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb",
-  [2] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/earth.rb"
+  [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb>,
+  [1] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb>,
+  [2] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/earth.rb>
 ]

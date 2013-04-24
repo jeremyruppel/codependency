@@ -1,11 +1,11 @@
 {
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/application.js"       => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js"
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/application.js>       => [
+    [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js>
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js"    => [
-    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js",
-    [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js"
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js>    => [
+    [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js>,
+    [1] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js>
   ],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js" => [],
-  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js" => []
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js> => [],
+  #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js> => []
 }
