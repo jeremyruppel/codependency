@@ -1,14 +1,5 @@
 require 'spec_helper'
 
-shared_context 'fixtures', :fixtures => true do
-  let( :dirname  ){ example.example_group.description }
-  let( :basename ){ example.description }
-  let( :file ){ File.join './spec/fixtures', dirname, basename }
-
-  before { subject.path << './spec/fixtures' }
-  before { subject.require file }
-end
-
 describe Codependency::Graph do
   it { should be_a( Hash ) }
 
