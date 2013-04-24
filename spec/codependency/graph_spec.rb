@@ -2,17 +2,7 @@ require 'spec_helper'
 
 shared_context 'fixtures', :fixtures => true do
   let( :dirname  ){ example.example_group.description }
-  let( :basename ){ example.description + extname }
-
-  # TODO this is temporary and only serves to keep the approval filenames
-  # the same during this refactor.
-  let( :extname ){
-    case dirname
-    when 'solar_system', 'lox' then '.rb'
-    when 'assets', 'breakfast' then '.js'
-    end
-  }
-
+  let( :basename ){ example.description }
   let( :file ){ File.join './spec/fixtures', dirname, basename }
 
   before { subject.path << './spec/fixtures' }
@@ -29,82 +19,82 @@ describe Codependency::Graph do
 
   describe '#require', :fixtures => true do
     describe 'solar_system' do
-      example( 'body'   ){ verify { subject } }
-      example( 'earth'  ){ verify { subject } }
-      example( 'mars'   ){ verify { subject } }
-      example( 'phobos' ){ verify { subject } }
-      example( 'planet' ){ verify { subject } }
+      example( 'body.rb'   ){ verify { subject } }
+      example( 'earth.rb'  ){ verify { subject } }
+      example( 'mars.rb'   ){ verify { subject } }
+      example( 'phobos.rb' ){ verify { subject } }
+      example( 'planet.rb' ){ verify { subject } }
     end
     describe 'breakfast' do
-      example( 'butter'   ){ verify { subject } }
-      example( 'egg'      ){ verify { subject } }
-      example( 'sandwich' ){ verify { subject } }
-      example( 'toast'    ){ verify { subject } }
+      example( 'butter.js'   ){ verify { subject } }
+      example( 'egg.js'      ){ verify { subject } }
+      example( 'sandwich.js' ){ verify { subject } }
+      example( 'toast.js'    ){ verify { subject } }
     end
     describe 'lox' do
-      example( 'money'   ){ verify { subject } }
-      example( 'power'   ){ verify { subject } }
-      example( 'respect' ){ verify { subject } }
+      example( 'money.rb'   ){ verify { subject } }
+      example( 'power.rb'   ){ verify { subject } }
+      example( 'respect.rb' ){ verify { subject } }
     end
     describe 'assets' do
-      example( 'templates/account' ){ verify { subject } }
-      example( 'templates/history' ){ verify { subject } }
-      example( 'templates/user'    ){ verify { subject } }
-      example( 'application'       ){ verify { subject } }
+      example( 'templates/account.js' ){ verify { subject } }
+      example( 'templates/history.js' ){ verify { subject } }
+      example( 'templates/user.js'    ){ verify { subject } }
+      example( 'application.js'       ){ verify { subject } }
     end
   end
 
   describe '#tsort', :fixtures => true do
     describe 'solar_system' do
-      example( 'body'   ){ verify { subject.tsort } }
-      example( 'earth'  ){ verify { subject.tsort } }
-      example( 'mars'   ){ verify { subject.tsort } }
-      example( 'phobos' ){ verify { subject.tsort } }
-      example( 'planet' ){ verify { subject.tsort } }
+      example( 'body.rb'   ){ verify { subject.tsort } }
+      example( 'earth.rb'  ){ verify { subject.tsort } }
+      example( 'mars.rb'   ){ verify { subject.tsort } }
+      example( 'phobos.rb' ){ verify { subject.tsort } }
+      example( 'planet.rb' ){ verify { subject.tsort } }
     end
     describe 'breakfast' do
-      example( 'butter'   ){ verify { subject.tsort } }
-      example( 'egg'      ){ verify { subject.tsort } }
-      example( 'sandwich' ){ verify { subject.tsort } }
-      example( 'toast'    ){ verify { subject.tsort } }
+      example( 'butter.js'   ){ verify { subject.tsort } }
+      example( 'egg.js'      ){ verify { subject.tsort } }
+      example( 'sandwich.js' ){ verify { subject.tsort } }
+      example( 'toast.js'    ){ verify { subject.tsort } }
     end
     describe 'lox' do
-      example( 'money'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'power'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'respect' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'money.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'power.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'respect.rb' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
     end
     describe 'assets' do
-      example( 'templates/account' ){ verify { subject.tsort } }
-      example( 'templates/history' ){ verify { subject.tsort } }
-      example( 'templates/user'    ){ verify { subject.tsort } }
-      example( 'application'       ){ verify { subject.tsort } }
+      example( 'templates/account.js' ){ verify { subject.tsort } }
+      example( 'templates/history.js' ){ verify { subject.tsort } }
+      example( 'templates/user.js'    ){ verify { subject.tsort } }
+      example( 'application.js'       ){ verify { subject.tsort } }
     end
   end
 
   describe '#files', :fixtures => true do
     describe 'solar_system' do
-      example( 'body'   ){ verify { subject.files } }
-      example( 'earth'  ){ verify { subject.files } }
-      example( 'mars'   ){ verify { subject.files } }
-      example( 'phobos' ){ verify { subject.files } }
-      example( 'planet' ){ verify { subject.files } }
+      example( 'body.rb'   ){ verify { subject.files } }
+      example( 'earth.rb'  ){ verify { subject.files } }
+      example( 'mars.rb'   ){ verify { subject.files } }
+      example( 'phobos.rb' ){ verify { subject.files } }
+      example( 'planet.rb' ){ verify { subject.files } }
     end
     describe 'breakfast' do
-      example( 'butter'   ){ verify { subject.files } }
-      example( 'egg'      ){ verify { subject.files } }
-      example( 'sandwich' ){ verify { subject.files } }
-      example( 'toast'    ){ verify { subject.files } }
+      example( 'butter.js'   ){ verify { subject.files } }
+      example( 'egg.js'      ){ verify { subject.files } }
+      example( 'sandwich.js' ){ verify { subject.files } }
+      example( 'toast.js'    ){ verify { subject.files } }
     end
     describe 'lox' do
-      example( 'money'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'power'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'respect' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'money.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'power.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'respect.rb' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
     end
     describe 'assets' do
-      example( 'templates/account' ){ verify { subject.files } }
-      example( 'templates/history' ){ verify { subject.files } }
-      example( 'templates/user'    ){ verify { subject.files } }
-      example( 'application'       ){ verify { subject.files } }
+      example( 'templates/account.js' ){ verify { subject.files } }
+      example( 'templates/history.js' ){ verify { subject.files } }
+      example( 'templates/user.js'    ){ verify { subject.files } }
+      example( 'application.js'       ){ verify { subject.files } }
     end
   end
 end
