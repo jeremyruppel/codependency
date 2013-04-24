@@ -10,10 +10,10 @@ module Codependency
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
-      file = path_to( string ).to_path
+      file = path_to string
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path_to( path[ short ] ).to_path
+        path_to path[ short ]
       end
       self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end
@@ -60,18 +60,14 @@ module Codependency
     end
 
     ##
-    # Calculates the relative path from one path the `#root` path. Accepts
-    # a string, returns a Pathname object populated with the relative path.
+    # Returns the given path, relative to the `#root` path.
     def path_to( string )
       path = Pathname( string )
-      path = path.expand_path
-      path = path.relative_path_from( root )
+              .expand_path
+              .relative_path_from( root )
+              .to_path
 
-      if path.to_path.start_with?( '.' )
-        path
-      else
-        Pathname( File.join( '.', path.to_path ) )
-      end
+      path.start_with?( '.' ) ? path : File.join( '.', path )
     end
   end
 end
