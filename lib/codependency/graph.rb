@@ -10,10 +10,11 @@ module Codependency
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
-      file = Pathname( string ).expand_path
+      root = Pathname.getwd
+      file = Pathname( string ).expand_path.relative_path_from( root )
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path[ short ]
+        path[ short ].relative_path_from( root )
       end
       self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end

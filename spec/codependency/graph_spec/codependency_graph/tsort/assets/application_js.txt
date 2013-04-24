@@ -1,6 +1,6 @@
 [
-  [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js>,
-  [1] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js>,
-  [2] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js>,
-  [3] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/application.js>
+  [0] #<Pathname:spec/fixtures/assets/templates/history.js>,
+  [1] #<Pathname:spec/fixtures/assets/templates/account.js>,
+  [2] #<Pathname:spec/fixtures/assets/templates/user.js>,
+  [3] #<Pathname:spec/fixtures/assets/application.js>
 ]
