@@ -1,11 +1,11 @@
 {
-  "spec/fixtures/assets/application.js"       => [
-    [0] "spec/fixtures/assets/templates/user.js"
+  "./spec/fixtures/assets/application.js"       => [
+    [0] "./spec/fixtures/assets/templates/user.js"
   ],
-  "spec/fixtures/assets/templates/user.js"    => [
-    [0] "spec/fixtures/assets/templates/history.js",
-    [1] "spec/fixtures/assets/templates/account.js"
+  "./spec/fixtures/assets/templates/user.js"    => [
+    [0] "./spec/fixtures/assets/templates/history.js",
+    [1] "./spec/fixtures/assets/templates/account.js"
   ],
-  "spec/fixtures/assets/templates/history.js" => [],
-  "spec/fixtures/assets/templates/account.js" => []
+  "./spec/fixtures/assets/templates/history.js" => [],
+  "./spec/fixtures/assets/templates/account.js" => []
 }

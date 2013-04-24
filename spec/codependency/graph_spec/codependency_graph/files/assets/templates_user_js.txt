@@ -1,5 +1,5 @@
 [
-  [0] "spec/fixtures/assets/templates/history.js",
-  [1] "spec/fixtures/assets/templates/account.js",
-  [2] "spec/fixtures/assets/templates/user.js"
+  [0] "./spec/fixtures/assets/templates/history.js",
+  [1] "./spec/fixtures/assets/templates/account.js",
+  [2] "./spec/fixtures/assets/templates/user.js"
 ]

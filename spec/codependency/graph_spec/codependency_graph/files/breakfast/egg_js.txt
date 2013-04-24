@@ -1,4 +1,4 @@
 [
-  [0] "spec/fixtures/breakfast/butter.js",
-  [1] "spec/fixtures/breakfast/egg.js"
+  [0] "./spec/fixtures/breakfast/butter.js",
+  [1] "./spec/fixtures/breakfast/egg.js"
 ]

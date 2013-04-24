@@ -1,6 +1,6 @@
 {
-  "spec/fixtures/breakfast/egg.js"    => [
-    [0] "spec/fixtures/breakfast/butter.js"
+  "./spec/fixtures/breakfast/egg.js"    => [
+    [0] "./spec/fixtures/breakfast/butter.js"
   ],
-  "spec/fixtures/breakfast/butter.js" => []
+  "./spec/fixtures/breakfast/butter.js" => []
 }

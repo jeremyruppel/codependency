@@ -1,13 +1,13 @@
 {
-  "spec/fixtures/solar_system/phobos.rb" => [
-    [0] "spec/fixtures/solar_system/body.rb",
-    [1] "spec/fixtures/solar_system/mars.rb"
+  "./spec/fixtures/solar_system/phobos.rb" => [
+    [0] "./spec/fixtures/solar_system/body.rb",
+    [1] "./spec/fixtures/solar_system/mars.rb"
   ],
-  "spec/fixtures/solar_system/body.rb"   => [],
-  "spec/fixtures/solar_system/mars.rb"   => [
-    [0] "spec/fixtures/solar_system/planet.rb"
+  "./spec/fixtures/solar_system/body.rb"   => [],
+  "./spec/fixtures/solar_system/mars.rb"   => [
+    [0] "./spec/fixtures/solar_system/planet.rb"
   ],
-  "spec/fixtures/solar_system/planet.rb" => [
-    [0] "spec/fixtures/solar_system/body.rb"
+  "./spec/fixtures/solar_system/planet.rb" => [
+    [0] "./spec/fixtures/solar_system/body.rb"
   ]
 }

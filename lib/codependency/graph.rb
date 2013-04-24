@@ -10,11 +10,10 @@ module Codependency
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
-      root = Pathname.getwd
-      file = Pathname( string ).expand_path.relative_path_from( root ).to_path
+      file = path_to( string ).to_path
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path[ short ].relative_path_from( root ).to_path
+        path_to( path[ short ] ).to_path
       end
       self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end
@@ -51,6 +50,28 @@ module Codependency
     # tsort interface
     def tsort_each_child( node, &block )
       fetch( node ).each( &block )
+    end
+
+    ##
+    # The current working directory of this graph. All paths in the graph
+    # will be relative to this path.
+    def root
+      @root ||= Pathname.getwd
+    end
+
+    ##
+    # Calculates the relative path from one path the `#root` path. Accepts
+    # a string, returns a Pathname object populated with the relative path.
+    def path_to( string )
+      path = Pathname( string )
+      path = path.expand_path
+      path = path.relative_path_from( root )
+
+      if path.to_path.start_with?( '.' )
+        path
+      else
+        Pathname( File.join( '.', path.to_path ) )
+      end
     end
   end
 end
