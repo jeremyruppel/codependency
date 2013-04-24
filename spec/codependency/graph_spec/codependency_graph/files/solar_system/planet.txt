@@ -1,4 +1,0 @@
-[
-  [0] #<Pathname:../../fixtures/solar_system/body.rb>,
-  [1] #<Pathname:../../fixtures/solar_system/planet.rb>
-]

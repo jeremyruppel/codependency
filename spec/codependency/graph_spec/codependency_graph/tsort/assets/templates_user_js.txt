@@ -1,0 +1,5 @@
+[
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js",
+  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js",
+  [2] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js"
+]

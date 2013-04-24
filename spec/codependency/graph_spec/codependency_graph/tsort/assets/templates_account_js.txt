@@ -1,0 +1,3 @@
+[
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js"
+]

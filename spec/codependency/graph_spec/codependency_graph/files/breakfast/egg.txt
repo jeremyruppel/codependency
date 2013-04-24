@@ -1,4 +1,0 @@
-[
-  [0] #<Pathname:../../fixtures/breakfast/butter.js>,
-  [1] #<Pathname:../../fixtures/breakfast/egg.js>
-]

@@ -1,0 +1,4 @@
+[
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js",
+  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js"
+]

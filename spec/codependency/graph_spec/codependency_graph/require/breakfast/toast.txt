@@ -1,6 +1,0 @@
-{
-  "breakfast/toast"  => [
-    [0] "breakfast/butter"
-  ],
-  "breakfast/butter" => []
-}

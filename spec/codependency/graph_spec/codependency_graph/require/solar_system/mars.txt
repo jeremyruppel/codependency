@@ -1,9 +1,0 @@
-{
-  "solar_system/mars"   => [
-    [0] "solar_system/planet"
-  ],
-  "solar_system/planet" => [
-    [0] "solar_system/body"
-  ],
-  "solar_system/body"   => []
-}

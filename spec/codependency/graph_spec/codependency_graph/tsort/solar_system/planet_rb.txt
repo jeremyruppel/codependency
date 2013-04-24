@@ -1,0 +1,4 @@
+[
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb",
+  [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb"
+]
