@@ -1,5 +1,14 @@
 require 'spec_helper'
 
+shared_context 'fixtures', :fixtures => true do
+  let( :dirname  ){ example.example_group.description }
+  let( :basename ){ example.description }
+  let( :file     ){ File.join dirname, basename }
+
+  before { subject.path << './spec/fixtures' }
+  before { subject << file }
+end
+
 describe Codependency::Graph do
   it { should be_a( Hash ) }
 
@@ -8,14 +17,7 @@ describe Codependency::Graph do
     its( :path ){ should be_empty }
   end
 
-  describe '#require' do
-    let( :dirname  ){ example.example_group.description }
-    let( :basename ){ example.description }
-    let( :file     ){ File.join dirname, basename }
-
-    before { subject.path << './spec/fixtures' }
-    before { subject << file }
-
+  describe '#require', :fixtures => true do
     describe 'solar_system' do
       example( 'body'   ){ verify { subject } }
       example( 'earth'  ){ verify { subject } }
@@ -42,14 +44,7 @@ describe Codependency::Graph do
     end
   end
 
-  describe '#tsort' do
-    let( :dirname  ){ example.example_group.description }
-    let( :basename ){ example.description }
-    let( :file     ){ File.join dirname, basename }
-
-    before { subject.path << './spec/fixtures' }
-    before { subject << file }
-
+  describe '#tsort', :fixtures => true do
     describe 'solar_system' do
       example( 'body'   ){ verify { subject.tsort } }
       example( 'earth'  ){ verify { subject.tsort } }
@@ -76,14 +71,7 @@ describe Codependency::Graph do
     end
   end
 
-  describe '#files' do
-    let( :dirname  ){ example.example_group.description }
-    let( :basename ){ example.description }
-    let( :file     ){ File.join dirname, basename }
-
-    before { subject.path << './spec/fixtures' }
-    before { subject << file }
-
+  describe '#files', :fixtures => true do
     describe 'solar_system' do
       example( 'body'   ){ verify { subject.files } }
       example( 'earth'  ){ verify { subject.files } }
