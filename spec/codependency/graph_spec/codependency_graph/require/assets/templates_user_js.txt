@@ -1,8 +1,8 @@
 {
-  #<Pathname:spec/fixtures/assets/templates/user.js>    => [
-    [0] #<Pathname:spec/fixtures/assets/templates/history.js>,
-    [1] #<Pathname:spec/fixtures/assets/templates/account.js>
+  "spec/fixtures/assets/templates/user.js"    => [
+    [0] "spec/fixtures/assets/templates/history.js",
+    [1] "spec/fixtures/assets/templates/account.js"
   ],
-  #<Pathname:spec/fixtures/assets/templates/history.js> => [],
-  #<Pathname:spec/fixtures/assets/templates/account.js> => []
+  "spec/fixtures/assets/templates/history.js" => [],
+  "spec/fixtures/assets/templates/account.js" => []
 }

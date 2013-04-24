@@ -11,10 +11,10 @@ module Codependency
     # graph.
     def require( string )
       root = Pathname.getwd
-      file = Pathname( string ).expand_path.relative_path_from( root )
+      file = Pathname( string ).expand_path.relative_path_from( root ).to_path
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path[ short ].relative_path_from( root )
+        path[ short ].relative_path_from( root ).to_path
       end
       self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end
@@ -24,7 +24,7 @@ module Codependency
     # Returns the sorted list of files as determined by this graph,
     # relative to the calling file.
     def files
-      tsort.map( &:to_path )
+      tsort
     end
 
     ##

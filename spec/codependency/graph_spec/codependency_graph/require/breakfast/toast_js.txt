@@ -1,6 +1,6 @@
 {
-  #<Pathname:spec/fixtures/breakfast/toast.js>  => [
-    [0] #<Pathname:spec/fixtures/breakfast/butter.js>
+  "spec/fixtures/breakfast/toast.js"  => [
+    [0] "spec/fixtures/breakfast/butter.js"
   ],
-  #<Pathname:spec/fixtures/breakfast/butter.js> => []
+  "spec/fixtures/breakfast/butter.js" => []
 }

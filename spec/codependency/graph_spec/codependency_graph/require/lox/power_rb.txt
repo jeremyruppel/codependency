@@ -1,11 +1,11 @@
 {
-  #<Pathname:spec/fixtures/lox/power.rb>   => [
-    [0] #<Pathname:spec/fixtures/lox/respect.rb>
+  "spec/fixtures/lox/power.rb"   => [
+    [0] "spec/fixtures/lox/respect.rb"
   ],
-  #<Pathname:spec/fixtures/lox/respect.rb> => [
-    [0] #<Pathname:spec/fixtures/lox/money.rb>
+  "spec/fixtures/lox/respect.rb" => [
+    [0] "spec/fixtures/lox/money.rb"
   ],
-  #<Pathname:spec/fixtures/lox/money.rb>   => [
-    [0] #<Pathname:spec/fixtures/lox/power.rb>
+  "spec/fixtures/lox/money.rb"   => [
+    [0] "spec/fixtures/lox/power.rb"
   ]
 }

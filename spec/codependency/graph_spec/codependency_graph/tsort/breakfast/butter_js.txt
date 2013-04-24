@@ -1,3 +1,3 @@
 [
-  [0] #<Pathname:spec/fixtures/breakfast/butter.js>
+  [0] "spec/fixtures/breakfast/butter.js"
 ]
