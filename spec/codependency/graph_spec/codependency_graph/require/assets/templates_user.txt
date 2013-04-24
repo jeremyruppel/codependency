@@ -1,8 +1,8 @@
 {
-  "assets/templates/user"    => [
-    [0] "assets/templates/history",
-    [1] "assets/templates/account"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/user.js"    => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js",
+    [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js"
   ],
-  "assets/templates/history" => [],
-  "assets/templates/account" => []
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js" => [],
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/account.js" => []
 }

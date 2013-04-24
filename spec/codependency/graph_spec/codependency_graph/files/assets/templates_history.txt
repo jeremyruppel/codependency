@@ -1,3 +1,3 @@
 [
-  [0] #<Pathname:../../fixtures/assets/templates/history.js>
+  [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js>
 ]

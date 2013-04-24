@@ -1,13 +1,13 @@
 {
-  "solar_system/phobos" => [
-    [0] "solar_system/body",
-    [1] "solar_system/mars"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/phobos.rb" => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb",
+    [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb"
   ],
-  "solar_system/body"   => [],
-  "solar_system/mars"   => [
-    [0] "solar_system/planet"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"   => [],
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/mars.rb"   => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb"
   ],
-  "solar_system/planet" => [
-    [0] "solar_system/body"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb" => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"
   ]
 }

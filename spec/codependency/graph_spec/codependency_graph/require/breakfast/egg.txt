@@ -1,6 +1,6 @@
 {
-  "breakfast/egg"    => [
-    [0] "breakfast/butter"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js"    => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js"
   ],
-  "breakfast/butter" => []
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js" => []
 }

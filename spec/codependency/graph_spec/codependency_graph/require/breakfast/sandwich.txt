@@ -1,13 +1,13 @@
 {
-  "breakfast/sandwich" => [
-    [0] "breakfast/egg",
-    [1] "breakfast/toast"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/sandwich.js" => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js",
+    [1] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/toast.js"
   ],
-  "breakfast/egg"      => [
-    [0] "breakfast/butter"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/egg.js"      => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js"
   ],
-  "breakfast/butter"   => [],
-  "breakfast/toast"    => [
-    [0] "breakfast/butter"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js"   => [],
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/toast.js"    => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js"
   ]
 }

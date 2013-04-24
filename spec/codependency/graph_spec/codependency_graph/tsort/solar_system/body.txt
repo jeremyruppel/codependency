@@ -1,3 +1,3 @@
 [
-  [0] "solar_system/body"
+  [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"
 ]

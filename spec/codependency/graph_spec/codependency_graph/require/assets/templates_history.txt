@@ -1,3 +1,3 @@
 {
-  "assets/templates/history" => []
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/assets/templates/history.js" => []
 }

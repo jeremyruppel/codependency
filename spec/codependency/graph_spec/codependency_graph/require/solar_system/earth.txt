@@ -1,9 +1,9 @@
 {
-  "solar_system/earth"  => [
-    [0] "solar_system/planet"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/earth.rb"  => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb"
   ],
-  "solar_system/planet" => [
-    [0] "solar_system/body"
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/planet.rb" => [
+    [0] "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"
   ],
-  "solar_system/body"   => []
+  "/Users/jeremyruppel/Git/codependency/spec/fixtures/solar_system/body.rb"   => []
 }

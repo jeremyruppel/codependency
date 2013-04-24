@@ -4,18 +4,14 @@ module Codependency
   class Graph < Hash
 
     ##
-    # Adds a file to the dependency graph. The filename given should be
-    # relative and should not contain an extension, like:
-    #
-    # # require application/user
-    #
-    # Attempts to locate and add all dependencies of this file recursively,
-    # creating our graph.
-    def require( file )
-      self[ file ] ||= parser.parse path[ file ]
-      self[ file ].each do |file|
-        self << file unless key?( file )
+    # CHANGED
+    def require( string )
+      file = File.expand_path string
+
+      self[ file ] ||= parser.parse( file ).map do |short|
+        path[ short ].to_path
       end
+      self[ file ].each { |f| self.require( f ) unless key?( f ) }
     end
     alias :<< :require
 
@@ -23,8 +19,7 @@ module Codependency
     # Returns the sorted list of files as determined by this graph,
     # relative to the calling file.
     def files
-      here = Pathname( caller.first.split( ':' ).shift )
-      tsort.map { |file| path[ file ].relative_path_from( here ) }
+      tsort.map { |file| Pathname( file ) }
     end
 
     ##

@@ -1,3 +1,3 @@
 [
-  [0] #<Pathname:../../fixtures/breakfast/butter.js>
+  [0] #<Pathname:/Users/jeremyruppel/Git/codependency/spec/fixtures/breakfast/butter.js>
 ]

@@ -2,11 +2,21 @@ require 'spec_helper'
 
 shared_context 'fixtures', :fixtures => true do
   let( :dirname  ){ example.example_group.description }
-  let( :basename ){ example.description }
-  let( :file     ){ File.join dirname, basename }
+  let( :basename ){ example.description + extname }
+
+  # TODO this is temporary and only serves to keep the approval filenames
+  # the same during this refactor.
+  let( :extname ){
+    case dirname
+    when 'solar_system', 'lox' then '.rb'
+    when 'assets', 'breakfast' then '.js'
+    end
+  }
+
+  let( :file ){ File.join './spec/fixtures', dirname, basename }
 
   before { subject.path << './spec/fixtures' }
-  before { subject << file }
+  before { subject.require file }
 end
 
 describe Codependency::Graph do
