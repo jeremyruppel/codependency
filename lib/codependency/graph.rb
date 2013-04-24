@@ -5,8 +5,8 @@ module Codependency
 
     ##
     # Add the given file to this graph. Creates a new entry in the
-    # graph, the key of which is the expanded path to this file and
-    # the value is the array of expanded paths to its dependencies.
+    # graph, the key of which is the relative path to this file and
+    # the value is the array of relative paths to its dependencies.
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
