@@ -1,5 +1,9 @@
 require 'rspec/approvals'
 
+module Approvals
+
+end
+
 ##
 # Simple shared context for allowing fixture-based examples to be
 # declared by using the example and example group names.
@@ -10,5 +14,4 @@ shared_context 'fixtures', :fixtures => true do
   let( :file ){ File.join './spec/fixtures', dirname, basename }
 
   before { subject.path << './spec/fixtures' }
-  before { subject.require file }
 end
