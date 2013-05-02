@@ -9,6 +9,8 @@ describe Codependency::Graph do
   end
 
   describe '#require', :fixtures => true do
+    before { subject.require file }
+
     describe 'solar_system' do
       example( 'body.rb'   ){ verify { subject } }
       example( 'earth.rb'  ){ verify { subject } }
@@ -36,6 +38,8 @@ describe Codependency::Graph do
   end
 
   describe '#tsort', :fixtures => true do
+    before { subject.require file }
+
     describe 'solar_system' do
       example( 'body.rb'   ){ verify { subject.tsort } }
       example( 'earth.rb'  ){ verify { subject.tsort } }
@@ -63,6 +67,8 @@ describe Codependency::Graph do
   end
 
   describe '#files', :fixtures => true do
+    before { subject.require file }
+
     describe 'solar_system' do
       example( 'body.rb'   ){ verify { subject.files } }
       example( 'earth.rb'  ){ verify { subject.files } }
@@ -77,15 +83,30 @@ describe Codependency::Graph do
       example( 'toast.js'    ){ verify { subject.files } }
     end
     describe 'lox' do
-      example( 'money.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'power.rb'   ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
-      example( 'respect.rb' ){ expect { subject.tsort }.to raise_error( TSort::Cyclic ) }
+      example( 'money.rb'   ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
+      example( 'power.rb'   ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
+      example( 'respect.rb' ){ expect { subject.files }.to raise_error( TSort::Cyclic ) }
     end
     describe 'assets' do
       example( 'templates/account.js' ){ verify { subject.files } }
       example( 'templates/history.js' ){ verify { subject.files } }
       example( 'templates/user.js'    ){ verify { subject.files } }
       example( 'application.js'       ){ verify { subject.files } }
+    end
+  end
+
+  describe '#scan', :fixtures => true do
+    before { subject.scan file }
+
+    describe 'solar_system' do
+      example( '*.rb' ){ verify { subject.files } }
+    end
+    describe 'breakfast' do
+      example( '*.js' ){ verify { subject.files } }
+    end
+    describe 'assets' do
+      example( '*.js' ){ verify { subject.files } }
+      example( 'templates/*.js' ){ verify { subject.files } }
     end
   end
 end

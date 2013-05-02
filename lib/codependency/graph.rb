@@ -10,14 +10,28 @@ module Codependency
     # Any dependent files will also be recursively added to this
     # graph.
     def require( string )
-      file = path_to( string ).to_path
+      file = path_to string
+
+      return if key?( file )
 
       self[ file ] ||= parser.parse( file ).map do |short|
-        path_to( path[ short ] ).to_path
+        path_to path[ short ]
       end
-      self[ file ].each { |f| self.require( f ) unless key?( f ) }
+      self[ file ].each do |dependency|
+        self.require dependency
+      end
     end
     alias :<< :require
+
+    ##
+    # Parses all of the files in the given glob and adds their
+    # dependencies to the graph. A file in this glob is not added
+    # to the graph unless another file in the glob depends on it.
+    def scan( glob )
+      Dir[ glob ].map { |file| parser.parse( file ) }.flatten.uniq.each do |short|
+        self.require path[ short ]
+      end
+    end
 
     ##
     # Returns the sorted list of files as determined by this graph,
@@ -60,18 +74,14 @@ module Codependency
     end
 
     ##
-    # Calculates the relative path from one path the `#root` path. Accepts
-    # a string, returns a Pathname object populated with the relative path.
+    # Returns the given path, relative to the `#root` path.
     def path_to( string )
       path = Pathname( string )
-      path = path.expand_path
-      path = path.relative_path_from( root )
+              .expand_path
+              .relative_path_from( root )
+              .to_path
 
-      if path.to_path.start_with?( '.' )
-        path
-      else
-        Pathname( File.join( '.', path.to_path ) )
-      end
+      path.start_with?( '.' ) ? path : File.join( '.', path )
     end
   end
 end
