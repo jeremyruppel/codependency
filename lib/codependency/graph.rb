@@ -9,14 +9,10 @@ module Codependency
     # the value is the array of relative paths to its dependencies.
     # Any dependent files will also be recursively added to this
     # graph.
-    def require( string )
-      file = path_to string
-
+    def require( file )
       return if key?( file )
 
-      self[ file ] ||= parser.parse( file ).map do |short|
-        path_to path[ short ]
-      end
+      self[ file ] = deps( file )
       self[ file ].each do |dependency|
         self.require dependency
       end
@@ -28,8 +24,8 @@ module Codependency
     # dependencies to the graph. A file in this glob is not added
     # to the graph unless another file in the glob depends on it.
     def scan( glob )
-      Dir[ glob ].map { |file| parser.parse( file ) }.flatten.uniq.each do |short|
-        self.require path[ short ]
+      Dir[ glob ].flat_map { |f| deps( f ) }.uniq.each do |dependency|
+        self.require dependency
       end
     end
 
@@ -75,13 +71,19 @@ module Codependency
 
     ##
     # Returns the given path, relative to the `#root` path.
-    def path_to( string )
-      path = Pathname( string )
+    def path_to( file )
+      path = Pathname( file )
               .expand_path
               .relative_path_from( root )
               .to_path
 
       path.start_with?( '.' ) ? path : File.join( '.', path )
+    end
+
+    ##
+    # Parses the file and returns the relative paths to its dependencies.
+    def deps( file )
+      parser.parse( file ).map { |f| path_to path[ f ] }
     end
   end
 end
